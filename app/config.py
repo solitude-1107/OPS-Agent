@@ -1,7 +1,4 @@
-"""配置管理模块
-
-使用 Pydantic Settings 实现类型安全的配置管理
-"""
+"""配置管理模块"""
 
 from typing import Dict, Any
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -18,7 +15,7 @@ class Settings(BaseSettings):
     )
 
     # 应用配置
-    app_name: str = "SuperBizAgent"
+    app_name: str = "OPS-Agent"
     app_version: str = "1.0.0"
     debug: bool = False
     host: str = "0.0.0.0"
@@ -71,18 +68,10 @@ class Settings(BaseSettings):
 
     @property
     def mcp_servers(self) -> Dict[str, Dict[str, Any]]:
-        """获取完整的 MCP 服务器配置"""
         return {
-            "cls": {
-                "transport": self.mcp_cls_transport,
-                "url": self.mcp_cls_url,
-            },
-            "monitor": {
-                "transport": self.mcp_monitor_transport,
-                "url": self.mcp_monitor_url,
-            }
+            "cls": {"transport": self.mcp_cls_transport, "url": self.mcp_cls_url},
+            "monitor": {"transport": self.mcp_monitor_transport, "url": self.mcp_monitor_url},
         }
 
 
-# 全局配置实例
 config = Settings()

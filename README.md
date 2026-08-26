@@ -1,4 +1,4 @@
-# SuperBizAgent - 智能运维助手
+# OPS-Agent - 智能运维助手
 
 基于 LangChain 的智能业务代理系统，支持 RAG 知识库和 AIOps 智能运维。
 
